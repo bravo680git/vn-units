@@ -1,0 +1,28 @@
+{
+  "name": "vn-units",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [
+    "VietNam",
+    "administrative",
+    "units",
+    "api"
+  ],
+  "author": "bravo",
+  "license": "MIT",
+  "description": "A package helps get all VietNam administrative units",
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@types/xml2js": "^0.4.14",
+    "axios": "^1.8.3",
+    "xml2js": "^0.6.2"
+  }
+}

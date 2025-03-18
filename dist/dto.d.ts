@@ -14,21 +14,21 @@ type WardRaw = DistrictRaw & {
 export declare class ProvinceDto {
     protected type: string;
     protected typeVi: string;
-    protected provinceCode: number;
+    protected provinceCode: string;
     protected provinceName: string;
     protected provinceNameVi: string;
-    constructor(raw: ProvinceRaw);
+    constructor(raw: ProvinceRaw, normalizeVietnamese?: boolean);
 }
 export declare class DistrictDto extends ProvinceDto {
-    protected districtCode: number;
+    protected districtCode: string;
     protected districtName: string;
     protected districtNameVi: string;
-    constructor(raw: DistrictRaw);
+    constructor(raw: DistrictRaw, normalizeVietnamese?: boolean);
 }
 export declare class WardDto extends DistrictDto {
-    protected wardCode: number;
+    protected wardCode: string;
     protected wardName: string;
     protected wardNameVi: string;
-    constructor(raw: WardRaw);
+    constructor(raw: WardRaw, normalizeVietnamese?: boolean);
 }
 export {};

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUnitType = exports.truncateVNUnitType = exports.extractJsonData = void 0;
+exports.getUnitType = exports.formatUnitName = exports.extractJsonData = void 0;
 exports.formatDate = formatDate;
 const xml2js_1 = require("xml2js");
 const constant_1 = require("./constant");
@@ -25,11 +25,19 @@ const extractJsonData = (res, type) => __awaiter(void 0, void 0, void 0, functio
     return json["soap:Envelope"]["soap:Body"][`${tag}Response`][`${tag}Result`]["diffgr:diffgram"]["DocumentElement"]["TABLE"];
 });
 exports.extractJsonData = extractJsonData;
-const truncateVNUnitType = (name) => {
+const formatUnitName = (name, normalizeVietnamese) => {
     const regex = new RegExp(Object.values(constant_1.UNIT_TYPE_NAME_MAPPER).flat().join("|"), "gi");
-    return name.replace(regex, "").trim();
+    name = name.replace(regex, "").trim();
+    if (normalizeVietnamese) {
+        name = name
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/đ/g, "d")
+            .replace(/Đ/g, "D");
+    }
+    return name;
 };
-exports.truncateVNUnitType = truncateVNUnitType;
+exports.formatUnitName = formatUnitName;
 const getUnitType = (name) => {
     const types = Object.entries(constant_1.UNIT_TYPE_NAME_MAPPER);
     for (const [type, typeNames] of types) {

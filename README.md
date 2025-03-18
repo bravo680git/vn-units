@@ -4,6 +4,8 @@
 
 This package provides a simple way to fetch and manipulate administrative units in Vietnam, including provinces, districts, and wards.
 
+- Note: work only on nodejs, not for browser environment
+
 ## Installation
 
 ```sh

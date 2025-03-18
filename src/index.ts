@@ -33,3 +33,9 @@ export const getWards = (
     .then((items) =>
       items.map((item) => new WardDto(item, opts?.normalizeVietnamese))
     );
+
+export type {
+  ProvinceDto as Province,
+  DistrictDto as District,
+  WardDto as Ward,
+};
